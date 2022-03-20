@@ -12,6 +12,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 
 /**
  * The persistent class for the PERSON database table in the bloodbank schema
@@ -27,6 +30,8 @@ import java.util.Set;
 @SuppressWarnings("unused")
 //TODO PR01 - add the missing annotations.
 //TODO PR02 - do we need a mapped super class? which one?
+@Entity
+@Table( name = "person")
 public class Person extends PojoBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
