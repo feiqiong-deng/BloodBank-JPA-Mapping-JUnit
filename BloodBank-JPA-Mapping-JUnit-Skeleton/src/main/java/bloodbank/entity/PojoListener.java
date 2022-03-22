@@ -18,14 +18,19 @@ import javax.persistence.PreUpdate;
 public class PojoListener {
 
 	// TODO - What annotation is used when we want to do something just before object is INSERT'd in the Database?
+	@PrePersist
 	public void setCreatedOnDate( PojoBase pojoBase) {
 		LocalDateTime now = LocalDateTime.now();
 		// TODO - what member field(s) do we wish to alter just before object is INSERT'd in the Database?
+		pojoBase.setCreated(now);
+		pojoBase.setUpdated(now);
 	}
 
 	// TODO - What annotation is used when we want to do something just before object is UPDATE'd in the Database?
+	@PreUpdate
 	public void setUpdatedDate( PojoBase pojoBase) {
 		// TODO - what member field(s) do we wish to alter just before object is UPDATE'd in the Database?
+		pojoBase.setUpdated(LocalDateTime.now());
 	}
 
 }

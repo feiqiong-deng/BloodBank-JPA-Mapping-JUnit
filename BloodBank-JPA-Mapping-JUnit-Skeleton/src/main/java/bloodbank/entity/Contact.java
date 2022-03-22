@@ -13,9 +13,11 @@ import java.util.Objects;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.AttributeOverride;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,18 +39,24 @@ public class Contact extends PojoBaseCompositeKey< ContactPK> implements Seriali
 	private static final long serialVersionUID = 1L;
 
 	// Hint - what Annotation is used for a composite primary key type
+	@EmbeddedId
 	private ContactPK id;
 
 	// @MapsId is used to map a part of composite key to an entity.
 	@MapsId( "personId")
-	@ManyToOne( cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
-	@JoinColumn( name = "person_id", referencedColumnName = "id", nullable = false)
+	@ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn( name = "person_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
 	private Person owner;
 
 	//TODO - add missing annotations
+	@MapsId( "phoneId")
+	@ManyToOne( cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
+	@JoinColumn( name = "phone_id", referencedColumnName = "phone_id", nullable = false, insertable = false, updatable = false)
 	private Phone phone;
 
 	//TODO - add missing annotations
+	@ManyToOne
+	@JoinColumn(name = "address_id")
 	private Address address;
 
 	@Column( length = 100, name = "email")

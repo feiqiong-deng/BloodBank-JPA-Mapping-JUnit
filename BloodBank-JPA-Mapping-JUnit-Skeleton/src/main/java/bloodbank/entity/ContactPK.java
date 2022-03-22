@@ -23,6 +23,7 @@ import javax.persistence.Embeddable;
  */
 //TODO - What annotation is used to define an object which can be embedded in other entities?
 //Hint - @Access is used to establish where the annotation for JPA will be placed, Field or Properties. 
+@Embeddable
 @Access( AccessType.FIELD)
 public class ContactPK implements Serializable {
 	// default serial version id, required for serializable classes.

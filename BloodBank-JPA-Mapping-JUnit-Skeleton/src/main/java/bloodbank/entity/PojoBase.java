@@ -13,12 +13,25 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Version;
+
 /**
  * Abstract class that is base of (class) hierarchy for all @Entity classes
  */
 //TODO PB01 - add annotation to define this class as superclass of all entities. Week 9 slides.
 //TODO PB02 - add annotation to place all JPA annotations on fields.
 //TODO PB03 - add annotation to for listener.
+@MappedSuperclass
+@Access(AccessType.PROPERTY) 
+@EntityListeners({PojoListener.class})
 public abstract class PojoBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -34,6 +47,8 @@ public abstract class PojoBase implements Serializable {
 	// TODO PB07 - add missing annotations (hint, is this column on DB).
 	protected LocalDateTime updated;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
@@ -42,6 +57,7 @@ public abstract class PojoBase implements Serializable {
 		this.id = id;
 	}
 
+    @Version
 	public int getVersion() {
 		return version;
 	}
@@ -50,6 +66,7 @@ public abstract class PojoBase implements Serializable {
 		this.version = version;
 	}
 
+    @Column(name = "created")
 	public LocalDateTime getCreated() {
 		return created;
 	}
@@ -57,6 +74,7 @@ public abstract class PojoBase implements Serializable {
 		this.created = created;
 	}
 
+    @Column(name = "updated")
 	public LocalDateTime getUpdated() {
 		return updated;
 	}

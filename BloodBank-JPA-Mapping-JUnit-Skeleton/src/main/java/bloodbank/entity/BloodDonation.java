@@ -11,9 +11,17 @@ package bloodbank.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @SuppressWarnings("unused")
 
@@ -22,20 +30,29 @@ import javax.persistence.OneToOne;
  */
 //TODO BD01 - add the missing annotations.
 //TODO BD02 - do we need a mapped super class? which one?
+@Entity
+@Table( name = "blood_donation")
+@NamedQuery( name = "BloodDonation.findAll", query = "SELECT a FROM BloodDonation a")
+@AttributeOverride( name = "id", column = @Column( name = "donation_id"))
 public class BloodDonation extends PojoBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// TODO BD03 - add annotations for M:1. changes to this class should cascade to BloodBank.
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name="bank_id")
 	private BloodBank bank;
 
 	// TODO BD04 - add annotations for 1:1. changes to this class should not cascade to DonationRecord.
 	// TODO BD05 - this object should not be insertable or updatable;
+	@OneToOne(mappedBy="donation")
 	private DonationRecord record;
 
 	// TODO BD06 - add annotations
+	@Column(name="milliliters")
 	private int milliliters;
 
 	// TODO BD07 - this object is embedded
+	@Embedded
 	private BloodType bloodType;
 
 	public BloodDonation() {

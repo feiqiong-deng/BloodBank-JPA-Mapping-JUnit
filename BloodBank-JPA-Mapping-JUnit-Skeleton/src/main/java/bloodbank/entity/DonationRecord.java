@@ -10,6 +10,18 @@ package bloodbank.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 @SuppressWarnings("unused")
 
 /**
@@ -17,13 +29,21 @@ import java.io.Serializable;
  */
 //TODO DR01 - add the missing annotations.
 //TODO DR02 - do we need a mapped super class? which one?
+@Entity
+@Table(name = "donation_record")
+@NamedQuery( name = "DonationRecord.findAll", query = "SELECT a FROM DonationRecord a")
+@AttributeOverride( name = "id", column = @Column( name = "record_id"))
 public class DonationRecord extends PojoBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// TODO DR03 - add annotations for 1:1 mapping. changes here should cascade.
+	@OneToOne( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name="donation_id", referencedColumnName = "donation_id", insertable = false, updatable = false)
 	private BloodDonation donation;
 
 	// TODO DR04 - add annotations for M:1 mapping. changes here should not cascade.
+	@ManyToOne
+	@JoinColumn(name = "person_id", referencedColumnName = "id", insertable = false, updatable = false)
 	private Person owner;
 
 	// TODO DR05 - add annotations.

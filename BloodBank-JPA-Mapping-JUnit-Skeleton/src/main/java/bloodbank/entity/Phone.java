@@ -12,6 +12,15 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 @SuppressWarnings("unused")
 
 /**
@@ -19,19 +28,27 @@ import java.util.Set;
  */
 //TODO PH01 - add the missing annotations.
 //TODO PH02 - do we need a mapped super class? which one?
+@Entity
+@Table( name = "phone")
+@NamedQuery( name = "Phone.findAll", query = "SELECT a FROM Phone a")
+@AttributeOverride( name = "id", column = @Column( name = "phone_id"))
 public class Phone extends PojoBase implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	// TODO PH03 - add missing annotations.
+    @Column(name = "area_code")
 	private String areaCode;
 
 	// TODO PH04 - add missing annotations.
+    @Column(name = "country_code")
 	private String countryCode;
 
 	// TODO PH05 - add missing annotations.
+    @Column(name = "number")
 	private String number;
 
 	// TODO PH06 - add annotations for 1:M relation. insertable, updatable are false. remove should not cascade.
+	@OneToMany(cascade={CascadeType.PERSIST,CascadeType.MERGE}, mappedBy = "phone")
 	private Set< Contact> contacts = new HashSet<>();
 
 	public Phone() {

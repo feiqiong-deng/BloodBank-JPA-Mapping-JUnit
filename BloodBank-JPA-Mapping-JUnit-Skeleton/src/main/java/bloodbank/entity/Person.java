@@ -12,7 +12,13 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -32,19 +38,25 @@ import javax.persistence.Table;
 //TODO PR02 - do we need a mapped super class? which one?
 @Entity
 @Table( name = "person")
+@NamedQuery( name = "Person.findAll", query = "SELECT a FROM Person a")
+@AttributeOverride( name = "id", column = @Column( name = "id"))
 public class Person extends PojoBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// TODO PR03 - add annotation
+    @Column(name = "first_name")
 	private String firstName;
 
 	// TODO PR04 - add annotation
+    @Column(name = "last_name")
 	private String lastName;
 
 	// TODO PR08 - add annotations for 1:M relation. insertable, updatable are false. remove should not cascade.
+	@OneToMany(cascade={CascadeType.PERSIST,CascadeType.MERGE}, mappedBy = "owner")
 	private Set< DonationRecord> donations = new HashSet<>();
 
 	// TODO PR09 - add annotations for 1:M relation. insertable, updatable are false. remove should not cascade.
+	@OneToMany(cascade={CascadeType.PERSIST,CascadeType.MERGE}, mappedBy = "owner")
 	private Set< Contact> contacts = new HashSet<>();
 
 	public String getFirstName() {

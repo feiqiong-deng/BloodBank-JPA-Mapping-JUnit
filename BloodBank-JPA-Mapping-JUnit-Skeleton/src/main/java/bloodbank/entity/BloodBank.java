@@ -13,20 +13,42 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 /**
  * The persistent class for the blood_bank database table.
  */
 //TODO BB01 - add the missing annotations.
 //TODO BB02 - BloodBank has subclasses PrivateBloodBank and PublicBoodBank. Look at week 9 slides for InheritanceType.
 //TODO BB03 - do we need a mapped super class? which one?
+@Entity
+@Table( name = "blood_bank")
+@NamedQuery( name = "BloodBank.findAll", query = "SELECT a FROM BloodBank a")
+@AttributeOverride( name = "id", column = @Column( name = "bank_id"))
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="privately_owned", length = 1)
 public abstract class BloodBank extends PojoBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// TODO BB04 - add the missing annotations.
+	@Column(name = "name")
 	private String name;
 
 	// TODO BB05 - add the 1:M annotation. This list should be effected by changes to this object (cascade).
 	// TODO BB06 - add the join column details.
+	@OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="bank")
 	private Set< BloodDonation> donations = new HashSet<>();
 
 	public BloodBank() {
