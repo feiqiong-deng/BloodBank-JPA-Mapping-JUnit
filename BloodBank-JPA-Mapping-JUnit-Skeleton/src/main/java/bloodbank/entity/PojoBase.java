@@ -30,26 +30,29 @@ import javax.persistence.Version;
 //TODO PB02 - add annotation to place all JPA annotations on fields.
 //TODO PB03 - add annotation to for listener.
 @MappedSuperclass
-@Access(AccessType.PROPERTY) 
+@Access(AccessType.FIELD) 
 @EntityListeners({PojoListener.class})
 public abstract class PojoBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// TODO PB04 - add missing annotations.
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int id;
 
 	// TODO PB05 - add missing annotations.
+    @Version
 	protected int version;
 
 	// TODO PB06 - add missing annotations (hint, is this column on DB).
-	protected LocalDateTime created;
+    @Column(name = "created")
+    protected LocalDateTime created;
 
 	// TODO PB07 - add missing annotations (hint, is this column on DB).
-	protected LocalDateTime updated;
+    @Column(name = "updated")
+    protected LocalDateTime updated;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int getId() {
+public int getId() {
 		return id;
 	}
 
@@ -57,7 +60,6 @@ public abstract class PojoBase implements Serializable {
 		this.id = id;
 	}
 
-    @Version
 	public int getVersion() {
 		return version;
 	}
@@ -66,7 +68,6 @@ public abstract class PojoBase implements Serializable {
 		this.version = version;
 	}
 
-    @Column(name = "created")
 	public LocalDateTime getCreated() {
 		return created;
 	}
@@ -74,7 +75,6 @@ public abstract class PojoBase implements Serializable {
 		this.created = created;
 	}
 
-    @Column(name = "updated")
 	public LocalDateTime getUpdated() {
 		return updated;
 	}

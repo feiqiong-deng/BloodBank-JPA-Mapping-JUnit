@@ -6,12 +6,25 @@ import java.util.Objects;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.SingularAttribute;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+
+import bloodbank.entity.Address;
+import bloodbank.entity.BloodBank;
+import bloodbank.entity.BloodDonation;
+import bloodbank.entity.Contact;
+import bloodbank.entity.DonationRecord;
+import bloodbank.entity.Person;
+import bloodbank.entity.Phone;
 
 /**
  * super class for all junit tests, holds common methods for creating {@link EntityManagerFactory} and truncating the DB
@@ -76,9 +89,18 @@ public class JUnitBase {
 	 */
 	protected static void deleteAllData() {
 		EntityManager em = getEntityManager();
-
 		// TODO JB01 - begin transaction and truncate all tables. order matters.
+		em.getTransaction().begin();
+		
+		deleteAllFrom( Address.class, em);
+		deleteAllFrom( Phone.class, em);
+		deleteAllFrom( Person.class, em);
+		deleteAllFrom( Contact.class, em);
+		deleteAllFrom( BloodBank.class, em);
+		deleteAllFrom( BloodDonation.class, em);
+		deleteAllFrom( DonationRecord.class, em);
 
+		em.getTransaction().commit();
 	}
 
 	/**
@@ -93,19 +115,34 @@ public class JUnitBase {
 	 */
 	public static < T> int deleteAllFrom( Class< T> entityType, EntityManager em) {
 		// TODO JB03 - using CriteriaBuilder create a CriteriaDelete to execute a truncate on DB.
-		return -1;
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaDelete<T> query = builder.createCriteriaDelete(entityType);
+		query.from(entityType);
+		return em.createQuery(query).executeUpdate();
 	}
 
 	protected static < T> long getTotalCount( EntityManager em, Class< T> clazz) {
 		// TODO JB04 - optional helper method. create a CriteriaQuery here to be reused in your tests.
 		// method signature is just a suggestion it can be modified if need be.
-		return -1;
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaQuery< Long> query = builder.createQuery( Long.class);
+		Root< T> root = query.from( clazz);
+		query.select( builder.count( root));
+		TypedQuery< Long> tq = em.createQuery( query);
+		
+		return tq.getSingleResult();
 	}
 
 	protected static < T> List< T> getAll( EntityManager em, Class< T> clazz) {
 		// TODO JB05 - optional helper method. create a CriteriaQuery here to be reused in your tests.
 		// method signature is just a suggestion it can be modified if need be.
-		return null;
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaQuery<T> query = builder.createQuery(clazz);
+		Root<T> root = query.from(clazz);
+		query.select( root);
+		TypedQuery<T> tq = em.createQuery( query);
+		
+		return tq.getResultList();
 	}
 
 	protected static < T, R> T getWithId( EntityManager em, Class< T> clazz, Class< R> classPK,

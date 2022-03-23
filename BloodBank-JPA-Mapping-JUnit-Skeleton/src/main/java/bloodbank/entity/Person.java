@@ -39,7 +39,7 @@ import javax.persistence.Table;
 @Entity
 @Table( name = "person")
 @NamedQuery( name = "Person.findAll", query = "SELECT a FROM Person a")
-@AttributeOverride( name = "id", column = @Column( name = "id"))
+//@AttributeOverride( name = "id", column = @Column( name = "person_id"))
 public class Person extends PojoBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -17,6 +17,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
@@ -31,25 +32,27 @@ import javax.persistence.Version;
 //TODO PC02 - add annotation to place all JPA annotations on fields.
 //TODO PC03 - add annotation to for listener.
 @MappedSuperclass
-@Access(AccessType.PROPERTY) 
+@Access(AccessType.FIELD) 
 @EntityListeners({PojoCompositeListener.class})
 public abstract class PojoBaseCompositeKey<ID extends Serializable> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// TODO PC04 - add missing annotations.
+	@Version
 	protected int version;
 
 	// TODO PC05 - add missing annotations (hint, is this column on DB).
+    @Column(name = "created")
 	protected LocalDateTime created;
 
 	// TODO PC06 - add missing annotations (hint, is this column on DB).
-	protected LocalDateTime updated;
+    @Column(name = "updated")
+    protected LocalDateTime updated;
 
 	public abstract ID getId();
 
 	public abstract void setId( ID id);
     
-	@Version
 	public int getVersion() {
 		return version;
 	}
@@ -58,7 +61,6 @@ public abstract class PojoBaseCompositeKey<ID extends Serializable> implements S
 		this.version = version;
 	}
 
-    @Column(name = "created")
 	public LocalDateTime getCreated() {
 		return created;
 	}
@@ -67,7 +69,6 @@ public abstract class PojoBaseCompositeKey<ID extends Serializable> implements S
 		this.created = created;
 	}
 
-    @Column(name = "updated")
 	public LocalDateTime getUpdated() {
 		return updated;
 	}

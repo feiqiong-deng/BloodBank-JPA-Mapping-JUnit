@@ -43,10 +43,11 @@ public class DonationRecord extends PojoBase implements Serializable {
 
 	// TODO DR04 - add annotations for M:1 mapping. changes here should not cascade.
 	@ManyToOne
-	@JoinColumn(name = "person_id", referencedColumnName = "id", insertable = false, updatable = false)
+	@JoinColumn(name = "person_id", referencedColumnName = "id")
 	private Person owner;
 
 	// TODO DR05 - add annotations.
+	@Column(name="tested")
 	private byte tested;
 
 	public DonationRecord() {

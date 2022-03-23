@@ -11,6 +11,7 @@ package bloodbank.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 //TODO BT01 - this class is not an entity however it can be embedded in other entities. add missing annotation.
@@ -19,9 +20,11 @@ public class BloodType implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// TODO BT02 - add annotations
+	@Column(name="blood_group")
 	private String bloodGroup;
 
 	// TODO BT03 - add annotations
+	@Column(name="rhd")
 	private byte rhd;
 
 	public BloodType() {
