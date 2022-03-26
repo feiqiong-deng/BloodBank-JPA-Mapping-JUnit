@@ -1,5 +1,9 @@
 package common;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
+import static org.hamcrest.Matchers.is;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -22,6 +26,8 @@ import bloodbank.entity.Address;
 import bloodbank.entity.BloodBank;
 import bloodbank.entity.BloodDonation;
 import bloodbank.entity.Contact;
+import bloodbank.entity.ContactPK;
+import bloodbank.entity.Contact_;
 import bloodbank.entity.DonationRecord;
 import bloodbank.entity.Person;
 import bloodbank.entity.Phone;
@@ -95,10 +101,10 @@ public class JUnitBase {
 		deleteAllFrom( Address.class, em);
 		deleteAllFrom( Phone.class, em);
 		deleteAllFrom( Person.class, em);
-		deleteAllFrom( Contact.class, em);
 		deleteAllFrom( BloodBank.class, em);
 		deleteAllFrom( BloodDonation.class, em);
 		deleteAllFrom( DonationRecord.class, em);
+		deleteAllFrom( Contact.class, em);
 
 		em.getTransaction().commit();
 	}
@@ -149,14 +155,31 @@ public class JUnitBase {
 			SingularAttribute< ? super T, R> sa, R id) {
 		// TODO JB06 - optional helper method. create a CriteriaQuery here to be reused in your tests.
 		// method signature is just a suggestion it can be modified if need be.
-		return null;
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaQuery<T> query = builder.createQuery(clazz);
+		Root<T> root = query.from(clazz);
+		query.select( root);
+		query.where( builder.equal( root.get(sa), builder.parameter(classPK, "id")));
+		TypedQuery<T> tq = em.createQuery( query);
+		tq.setParameter( "id", id);
+
+		return  tq.getSingleResult();
 	}
 
 	protected static < T, R> long getCountWithId( EntityManager em, Class< T> clazz, Class< R> classPK,
 			SingularAttribute< ? super T, R> sa, R id) {
 		// TODO JB07 - optional helper method. create a CriteriaQuery here to be reused in your tests.
 		// method signature is just a suggestion it can be modified if need be.
-		return -1;
+		
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaQuery< Long> query = builder.createQuery( Long.class);
+		Root<T> root = query.from(clazz);
+		query.select( builder.count( root));
+		query.where( builder.equal( root.get(sa), builder.parameter(classPK, "id")));
+		TypedQuery< Long> tq = em.createQuery( query);
+		tq.setParameter( "id",id);
+
+		return tq.getSingleResult();
 	}
 
 	@BeforeAll

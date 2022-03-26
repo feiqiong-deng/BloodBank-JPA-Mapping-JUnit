@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.AttributeOverride;
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,19 +37,22 @@ public class Phone extends PojoBase implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	// TODO PH03 - add missing annotations.
-    @Column(name = "area_code")
+	@Basic( optional = false)
+	@Column(name = "area_code", nullable = false, length = 10)
 	private String areaCode;
 
 	// TODO PH04 - add missing annotations.
-    @Column(name = "country_code")
+	@Basic( optional = false)
+    @Column(name = "country_code", nullable = false, length = 10)
 	private String countryCode;
 
 	// TODO PH05 - add missing annotations.
-    @Column(name = "number")
+	@Basic( optional = false)
+	@Column(name = "number",  nullable = false, length = 10)
 	private String number;
 
 	// TODO PH06 - add annotations for 1:M relation. insertable, updatable are false. remove should not cascade.
-	@OneToMany(cascade={CascadeType.PERSIST,CascadeType.MERGE}, mappedBy = "phone")
+	@OneToMany(mappedBy = "phone")
 	private Set< Contact> contacts = new HashSet<>();
 
 	public Phone() {

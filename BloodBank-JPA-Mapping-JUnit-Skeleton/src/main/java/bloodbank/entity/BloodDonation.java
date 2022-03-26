@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.AttributeOverride;
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -39,7 +40,7 @@ public class BloodDonation extends PojoBase implements Serializable {
 
 	// TODO BD03 - add annotations for M:1. changes to this class should cascade to BloodBank.
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="bank_id")
+	@JoinColumn(name="bank_id", referencedColumnName="bank_id", nullable = false)
 	private BloodBank bank;
 
 	// TODO BD04 - add annotations for 1:1. changes to this class should not cascade to DonationRecord.
@@ -48,7 +49,8 @@ public class BloodDonation extends PojoBase implements Serializable {
 	private DonationRecord record;
 
 	// TODO BD06 - add annotations
-	@Column(name="milliliters")
+	@Basic( optional = false)
+	@Column(name="milliliters", nullable = false)
 	private int milliliters;
 
 	// TODO BD07 - this object is embedded

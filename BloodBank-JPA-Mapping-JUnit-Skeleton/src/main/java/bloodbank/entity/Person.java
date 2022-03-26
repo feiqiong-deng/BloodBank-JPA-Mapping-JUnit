@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.AttributeOverride;
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,19 +45,21 @@ public class Person extends PojoBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// TODO PR03 - add annotation
-    @Column(name = "first_name")
+	@Basic( optional = false)
+    @Column(name = "first_name", nullable = false, length = 10)
 	private String firstName;
 
 	// TODO PR04 - add annotation
-    @Column(name = "last_name")
+	@Basic( optional = false)
+    @Column(name = "last_name", nullable = false, length = 10)
 	private String lastName;
 
 	// TODO PR08 - add annotations for 1:M relation. insertable, updatable are false. remove should not cascade.
-	@OneToMany(cascade={CascadeType.PERSIST,CascadeType.MERGE}, mappedBy = "owner")
+	@OneToMany(mappedBy = "owner")
 	private Set< DonationRecord> donations = new HashSet<>();
 
 	// TODO PR09 - add annotations for 1:M relation. insertable, updatable are false. remove should not cascade.
-	@OneToMany(cascade={CascadeType.PERSIST,CascadeType.MERGE}, mappedBy = "owner")
+	@OneToMany( mappedBy = "owner")
 	private Set< Contact> contacts = new HashSet<>();
 
 	public String getFirstName() {

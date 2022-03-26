@@ -14,6 +14,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.AttributeOverride;
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -42,7 +43,8 @@ public abstract class BloodBank extends PojoBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// TODO BB04 - add the missing annotations.
-	@Column(name = "name")
+	@Basic( optional = false)
+	@Column(name = "name", nullable = false, length = 100)
 	private String name;
 
 	// TODO BB05 - add the 1:M annotation. This list should be effected by changes to this object (cascade).

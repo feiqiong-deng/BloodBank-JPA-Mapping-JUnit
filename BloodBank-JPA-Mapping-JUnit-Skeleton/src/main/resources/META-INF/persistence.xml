@@ -8,7 +8,7 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bloodbank?useSSL=false&amp;createDatabaseIfNotExist=true&amp;serverTimezone=UTC&amp;useLegacyDatetimeCode=false"/>
+        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bloodbank?useSSL=false&amp;createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC&amp;useLegacyDatetimeCode=false"/>
         <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
         <property name="javax.persistence.jdbc.user" value="cst8277"/>
         <property name="javax.persistence.jdbc.password" value="8277"/>

@@ -11,6 +11,7 @@ package bloodbank.entity;
 import java.io.Serializable;
 
 import javax.persistence.AttributeOverride;
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,16 +39,17 @@ public class DonationRecord extends PojoBase implements Serializable {
 
 	// TODO DR03 - add annotations for 1:1 mapping. changes here should cascade.
 	@OneToOne( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="donation_id", referencedColumnName = "donation_id", insertable = false, updatable = false)
+	@JoinColumn(name="donation_id", referencedColumnName = "donation_id", nullable = false)
 	private BloodDonation donation;
 
 	// TODO DR04 - add annotations for M:1 mapping. changes here should not cascade.
 	@ManyToOne
-	@JoinColumn(name = "person_id", referencedColumnName = "id")
+	@JoinColumn(name = "person_id", referencedColumnName = "id", nullable = false)
 	private Person owner;
 
 	// TODO DR05 - add annotations.
-	@Column(name="tested")
+	@Basic( optional = false)
+	@Column(name="tested", nullable = false)
 	private byte tested;
 
 	public DonationRecord() {

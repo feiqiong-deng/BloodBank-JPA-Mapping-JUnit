@@ -45,14 +45,14 @@ public class Contact extends PojoBaseCompositeKey< ContactPK> implements Seriali
 
 	// @MapsId is used to map a part of composite key to an entity.
 	@MapsId( "personId")
-	@ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn( name = "person_id", nullable = false, insertable = false, updatable = false)
+	@ManyToOne( cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
+	@JoinColumn( name = "person_id", referencedColumnName="id", nullable = false)
 	private Person owner;
 
 	//TODO - add missing annotations
 	@MapsId( "phoneId")
 	@ManyToOne( cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
-	@JoinColumn( name = "phone_id", nullable = false, insertable = false, updatable = false)
+	@JoinColumn( name = "phone_id", referencedColumnName="phone_id", nullable = false)
 	private Phone phone;
 
 	//TODO - add missing annotations

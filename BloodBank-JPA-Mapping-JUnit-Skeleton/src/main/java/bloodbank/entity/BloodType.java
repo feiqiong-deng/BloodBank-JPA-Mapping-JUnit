@@ -11,6 +11,7 @@ package bloodbank.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -20,11 +21,13 @@ public class BloodType implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// TODO BT02 - add annotations
-	@Column(name="blood_group")
+	@Basic( optional = false)
+	@Column(name="blood_group", nullable = false, length = 2)
 	private String bloodGroup;
 
 	// TODO BT03 - add annotations
-	@Column(name="rhd")
+	@Basic( optional = false)
+	@Column(name="rhd", nullable = false)
 	private byte rhd;
 
 	public BloodType() {
