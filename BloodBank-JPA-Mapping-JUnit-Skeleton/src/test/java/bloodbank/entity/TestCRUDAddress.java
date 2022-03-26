@@ -8,28 +8,23 @@ import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import common.JUnitBase;
 
-@TestMethodOrder(MethodOrderer.MethodName.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TestCRUDAddress extends JUnitBase {
 	private EntityManager em;
 	private EntityTransaction et;
@@ -65,12 +60,14 @@ public class TestCRUDAddress extends JUnitBase {
 	}
 	
 	@Test
+	@Order(1)
 	void test01_Empty() {
 		Long result = getTotalCount(em, Address.class);
 		assertThat( result, is( comparesEqualTo( 0L)));
 	}
 	
 	@Test
+	@Order(2)
 	void test02_Create() {
 		et.begin();
 		em.persist( address);	
@@ -81,6 +78,7 @@ public class TestCRUDAddress extends JUnitBase {
 	
 	
 	@Test
+	@Order(3)
 	void test03_CreateInvalid() {
 		et.begin();
 		Address addressTest = new Address();
@@ -94,12 +92,14 @@ public class TestCRUDAddress extends JUnitBase {
 	}
 	
 	@Test
+	@Order(4)
 	void test04_Read() {		
 		List<Address> addresses = getAll(em, Address.class);
 		assertThat( addresses, contains( equalTo( address)));
 	}
 	
 	@Test
+	@Order(5)
 	void test05_ReadAllFields() {
 		Address returnedAddress = getWithId(em, Address.class, Integer.class, Address_.id, address.getId());
 
@@ -113,6 +113,7 @@ public class TestCRUDAddress extends JUnitBase {
 	}
 	
 	@Test
+	@Order(6)
 	void test06_Update() {
 		Address returnedAddress = getWithId(em, Address.class, Integer.class, Address_.id, address.getId());
 
@@ -144,6 +145,7 @@ public class TestCRUDAddress extends JUnitBase {
 	}
 	
 	@Test
+	@Order(7)
 	void test07_Delete() {
 		Address returnedAddress = getWithId(em, Address.class, Integer.class, Address_.id, address.getId());
 

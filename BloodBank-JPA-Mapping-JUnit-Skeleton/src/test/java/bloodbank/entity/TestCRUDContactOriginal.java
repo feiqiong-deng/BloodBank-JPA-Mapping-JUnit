@@ -14,10 +14,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -68,22 +64,8 @@ public class TestCRUDContactOriginal extends JUnitBase {
 	@Test
 	@Order(1)
 	void test01_Empty() {
-//
-//		CriteriaBuilder builder = em.getCriteriaBuilder();
-//		// create query for long as we need the number of found rows
-//		CriteriaQuery< Long> query = builder.createQuery( Long.class);
-//		// select count(c) from Contact c
-//		Root< Contact> root = query.from( Contact.class);
-//		query.select( builder.count( root));
-//		// create query and set the parameter
-//		TypedQuery< Long> tq = em.createQuery( query);
-//		// get the result as row count
-//		long result = tq.getSingleResult();
-		
 		long result = getTotalCount(em, Contact.class);
-
 		assertThat( result, is( comparesEqualTo( 0L)));
-
 	}
 
 	@Test
@@ -99,23 +81,9 @@ public class TestCRUDContactOriginal extends JUnitBase {
 		em.persist( contact);
 		et.commit();
 
-//		CriteriaBuilder builder = em.getCriteriaBuilder();
-//		// create query for long as we need the number of found rows
-//		CriteriaQuery< Long> query = builder.createQuery( Long.class);
-//		// select count(c) from Contact c where c.id=:id
-//		Root< Contact> root = query.from( Contact.class);
-//		query.select( builder.count( root));
-//		query.where( builder.equal( root.get( Contact_.id), builder.parameter( ContactPK.class, "id")));
-//		// create query and set the parameter
-//		TypedQuery< Long> tq = em.createQuery( query);
-//		tq.setParameter( "id", contact.getId());
-//		// get the result as row count
-//		long result = tq.getSingleResult();
-
 		long result = getCountWithId(em, Contact.class, ContactPK.class, Contact_.id, contact.getId());
 		// there should only be one row in the DB
 		assertThat( result, is( greaterThanOrEqualTo( 1L)));
-//		assertEquals( result, 1);
 	}
 
 	@Test
@@ -136,17 +104,6 @@ public class TestCRUDContactOriginal extends JUnitBase {
 	@Test
 	@Order(4)
 	void test04_Read() {
-//		CriteriaBuilder builder = em.getCriteriaBuilder();
-//		// create query for Contact
-//		CriteriaQuery< Contact> query = builder.createQuery( Contact.class);
-//		// select c from Contact c
-//		Root< Contact> root = query.from( Contact.class);
-//		query.select( root);
-//		// create query and set the parameter
-//		TypedQuery< Contact> tq = em.createQuery( query);
-//		// get the result as row count
-//		List< Contact> contacts = tq.getResultList();
-		
 		List< Contact> contacts = getAll(em, Contact.class);
 		assertThat( contacts, contains( equalTo( contact)));
 	}
@@ -154,19 +111,6 @@ public class TestCRUDContactOriginal extends JUnitBase {
 	@Test
 	@Order(5)
 	void test05_ReadDependencies() {
-//		CriteriaBuilder builder = em.getCriteriaBuilder();
-//		// create query for Contact
-//		CriteriaQuery< Contact> query = builder.createQuery( Contact.class);
-//		// select c from Contact c
-//		Root< Contact> root = query.from( Contact.class);
-//		query.select( root);
-//		query.where( builder.equal( root.get( Contact_.id), builder.parameter( ContactPK.class, "id")));
-//		// create query and set the parameter
-//		TypedQuery< Contact> tq = em.createQuery( query);
-//		tq.setParameter( "id", contact.getId());
-//		// get the result as row count
-//		Contact returnedContact = tq.getSingleResult();
-		
 		Contact returnedContact = getWithId(em, Contact.class, ContactPK.class, Contact_.id, contact.getId());
 
 		assertThat( returnedContact.getOwner(), equalTo( person));
@@ -179,19 +123,6 @@ public class TestCRUDContactOriginal extends JUnitBase {
 	@Test
 	@Order(6)
 	void test06_Update() {
-//		CriteriaBuilder builder = em.getCriteriaBuilder();
-//		// create query for Contact
-//		CriteriaQuery< Contact> query = builder.createQuery( Contact.class);
-//		// select c from Contact c
-//		Root< Contact> root = query.from( Contact.class);
-//		query.select( root);
-//		query.where( builder.equal( root.get( Contact_.id), builder.parameter( ContactPK.class, "id")));
-//		// create query and set the parameter
-//		TypedQuery< Contact> tq = em.createQuery( query);
-//		tq.setParameter( "id", contact.getId());
-//		// get the result as row count
-//		Contact returnedContact = tq.getSingleResult();
-
 		Contact returnedContact = getWithId(em, Contact.class, ContactPK.class, Contact_.id, contact.getId());
 
 		String newEmail = "test3@test3.com";
@@ -203,7 +134,6 @@ public class TestCRUDContactOriginal extends JUnitBase {
 		em.merge( returnedContact);
 		et.commit();
 
-//		returnedContact = tq.getSingleResult();
 		returnedContact = getWithId(em, Contact.class, ContactPK.class, Contact_.id, contact.getId());
 		assertThat( returnedContact.getEmail(), equalTo( newEmail));
 		assertThat( returnedContact.getContactType(), equalTo( newContactType));
@@ -212,19 +142,6 @@ public class TestCRUDContactOriginal extends JUnitBase {
 	@Test
 	@Order(7)
 	void test07_UpdateDependencies() {
-//		CriteriaBuilder builder = em.getCriteriaBuilder();
-//		// create query for Contact
-//		CriteriaQuery< Contact> query = builder.createQuery( Contact.class);
-//		// select c from Contact c where c.id=:id
-//		Root< Contact> root = query.from( Contact.class);
-//		query.select( root);
-//		query.where( builder.equal( root.get( Contact_.id), builder.parameter( ContactPK.class, "id")));
-//		// create query and set the parameter
-//		TypedQuery< Contact> tq = em.createQuery( query);
-//		tq.setParameter( "id", contact.getId());
-//		// get the result as row count
-//		Contact returnedContact = tq.getSingleResult();
-		
 		Contact returnedContact = getWithId(em, Contact.class, ContactPK.class, Contact_.id, contact.getId());
 
 		phone = returnedContact.getPhone();
@@ -243,7 +160,6 @@ public class TestCRUDContactOriginal extends JUnitBase {
 		em.merge( returnedContact);
 		et.commit();
 
-//		returnedContact = tq.getSingleResult();
 		returnedContact = getWithId(em, Contact.class, ContactPK.class, Contact_.id, contact.getId());
 
 		assertThat( returnedContact.getOwner(), equalTo( person));
@@ -255,18 +171,6 @@ public class TestCRUDContactOriginal extends JUnitBase {
 	@Test
 	@Order(8)
 	void test08_DeleteDependecy() {
-//		CriteriaBuilder builder = em.getCriteriaBuilder();
-//		// create query for Contact
-//		CriteriaQuery< Contact> query = builder.createQuery( Contact.class);
-//		// select c from Contact c
-//		Root< Contact> root = query.from( Contact.class);
-//		query.select( root);
-//		query.where( builder.equal( root.get( Contact_.id), builder.parameter( ContactPK.class, "id")));
-//		// create query and set the parameter
-//		TypedQuery< Contact> tq = em.createQuery( query);
-//		tq.setParameter( "id", contact.getId());
-//		// get the result as row count
-//		Contact returnedContact = tq.getSingleResult();
 		Contact returnedContact = getWithId(em, Contact.class, ContactPK.class, Contact_.id, contact.getId());
 
 		int addressId = returnedContact.getAddress().getId();
@@ -276,23 +180,10 @@ public class TestCRUDContactOriginal extends JUnitBase {
 		em.merge( returnedContact);
 		et.commit();
 
-//		returnedContact = tq.getSingleResult();
 		returnedContact = getWithId(em, Contact.class, ContactPK.class, Contact_.id, contact.getId());
 
 		assertThat( returnedContact.getAddress(), is( nullValue()));
 
-		// create query for long as we need the number of found rows
-//		CriteriaQuery< Long> query2 = builder.createQuery( Long.class);
-//		// select count(a) from Address a where a.id=:id
-//		Root< Address> root2 = query2.from( Address.class);
-//		query2.select( builder.count( root2));
-//		query2.where( builder.equal( root2.get( Address_.id), builder.parameter( Integer.class, "id")));
-//		// create query and set the parameter
-//		TypedQuery< Long> tq2 = em.createQuery( query2);
-//		tq2.setParameter( "id", addressId);
-//		// get the result as row count
-//		long result = tq2.getSingleResult();
-		
 		long result = getCountWithId(em, Address.class, Integer.class, Address_.id, addressId);
 		// because it can be null so it is not removed
 		assertThat( result, is( equalTo( 1L)));
@@ -301,18 +192,6 @@ public class TestCRUDContactOriginal extends JUnitBase {
 	@Test
 	@Order(9)
 	void test09_Delete() {
-//		CriteriaBuilder builder = em.getCriteriaBuilder();
-//		// create query for Contact
-//		CriteriaQuery< Contact> query = builder.createQuery( Contact.class);
-//		// select c from Contact c
-//		Root< Contact> root = query.from( Contact.class);
-//		query.select( root);
-//		query.where( builder.equal( root.get( Contact_.id), builder.parameter( ContactPK.class, "id")));
-//		// create query and set the parameter
-//		TypedQuery< Contact> tq = em.createQuery( query);
-//		tq.setParameter( "id", contact.getId());
-//		// get the result as row count
-		
 		Contact returnedContact = getWithId(em, Contact.class, ContactPK.class, Contact_.id, contact.getId());
 
 		et.begin();
@@ -328,25 +207,9 @@ public class TestCRUDContactOriginal extends JUnitBase {
 		em.remove(returnedContact);
 		et.commit();
 
-//		// create query for long as we need the number of found rows
-//		CriteriaQuery< Long> query2 = builder.createQuery( Long.class);
-//		// select count(a) from Address a where a.id=:id
-//		Root< Contact> root2 = query2.from( Contact.class);
-//		query2.select( builder.count( root2));
-//		query2.where( builder.equal( root2.get( Contact_.id), builder.parameter( ContactPK.class, "id")));
-//		// create query and set the parameter
-//		TypedQuery< Long> tq2 = em.createQuery( query2);
-//		tq2.setParameter( "id", returnedContact.getId());
-//		// get the result as row count
-		
 		long result = getCountWithId(em, Contact.class, ContactPK.class, Contact_.id, returnedContact.getId());
 		assertThat( result, is( equalTo( 0L)));
 
-//		// create query and set the parameter
-//		TypedQuery< Long> tq3 = em.createQuery( query2);
-//		tq3.setParameter( "id", contactHome.getId());
-//		// get the result as row count
-//		result = tq3.getSingleResult();
 		result = getCountWithId(em, Contact.class, ContactPK.class, Contact_.id, contactHome.getId());
 		assertThat( result, is( equalTo( 1L)));
 	}

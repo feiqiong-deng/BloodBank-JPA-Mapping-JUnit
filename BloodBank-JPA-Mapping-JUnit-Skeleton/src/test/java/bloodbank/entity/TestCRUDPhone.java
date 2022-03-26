@@ -18,6 +18,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
@@ -53,126 +54,106 @@ public class TestCRUDPhone extends JUnitBase {
 	}
 	
 	@Test
+	@Order(1)
 	void test01_Empty() {
-		Long result = getTotalCount(em, Address.class);
+		Long result = getTotalCount(em, Phone.class);
 		assertThat( result, is( comparesEqualTo( 0L)));
 	}
 	
 	@Test
+	@Order(2)
 	void test02_Create() {
 		et.begin();
-		address = new Address();
-		address.setStreetNumber( STREETNUM);
-		address.setStreet(STREET);
-		address.setCity(CITY);
-		address.setProvince(PROVINCE);
-		address.setCountry(COUNTRY);
-		address.setZipcode(ZIPCODE);
-		em.persist( address);
-		
+		em.persist(phone);
 		et.commit();
 
-		Long result = getCountWithId(em, Address.class, Integer.class, Address_.id, address.getId());
+		Long result = getCountWithId(em, Phone.class, Integer.class, Phone_.id, phone.getId());
 
 		assertThat( result, is( greaterThanOrEqualTo( 1L)));
 	}
 	
 	
 	@Test
+	@Order(3)
 	void test03_CreateInvalid() {
 		et.begin();
-		Address addressTest = new Address();
-		addressTest.setStreetNumber(STREETNUM);
-		addressTest.setStreet(STREET);
-		addressTest.setCity(CITY);
-		addressTest.setProvince(PROVINCE);
-		addressTest.setCountry(COUNTRY);
-		assertThrows( PersistenceException.class, () -> em.persist( addressTest));
+		Phone phoneTest = new Phone();
+		phoneTest.setCountryCode(COUTRYCODE);
+		phoneTest.setAreaCode(AREACODE);
+		assertThrows( PersistenceException.class, () -> em.persist(phoneTest));
 		et.commit();
 	}
 	
 	@Test
+	@Order(4)
 	void test04_Read() {		
-		List<Address> addresses = getAll(em, Address.class);
-		assertThat( addresses, contains( equalTo( address)));
+		List<Phone> phones = getAll(em, Phone.class);
+		assertThat( phones, contains( equalTo( phone)));
 	}
 	
 	@Test
+	@Order(5)
 	void test05_ReadAllFields() {
-		Address returnedAddress = getWithId(em, Address.class, Integer.class, Address_.id, address.getId());
+		Phone returnedPhone= getWithId(em, Phone.class, Integer.class, Phone_.id, phone.getId());
 
-		assertThat( returnedAddress.getStreetNumber(), equalTo( STREETNUM));
-		assertThat( returnedAddress.getStreet(), equalTo( STREET));
-		assertThat( returnedAddress.getCity(), equalTo( CITY));
-		assertThat( returnedAddress.getProvince(), equalTo( PROVINCE));
-		assertThat( returnedAddress.getCountry(), equalTo( COUNTRY));
-		assertThat( returnedAddress.getZipcode(), equalTo( ZIPCODE));
+		assertThat( returnedPhone.getCountryCode(), equalTo( COUTRYCODE));
+		assertThat( returnedPhone.getAreaCode(), equalTo( AREACODE));
+		assertThat( returnedPhone.getNumber(), equalTo( NUMBER));
 
 	}
 	
 	@Test
+	@Order(6)
 	void test06_Update() {
-		Address returnedAddress = getWithId(em, Address.class, Integer.class, Address_.id, address.getId());
+		Phone returnedPhone= getWithId(em, Phone.class, Integer.class, Phone_.id, phone.getId());
 
-		String newStreetNum = "666";
-		String newStreet = "Hello Rd";
-		String newCity = "boston";
-		String newProvinve = "MA";
-		String newCountry = "US";
-		String newZipcode = "MAB789";
+		String newCountryCode = "123";
+		String newAreaCode = "321";
+		String newNumber = "9876543";
 
 		et.begin();
-		returnedAddress.setStreetNumber( newStreetNum);
-		returnedAddress.setStreet( newStreet);
-		returnedAddress.setCity(newCity);
-		returnedAddress.setProvince(newProvinve);
-		returnedAddress.setCountry(newCountry);
-		returnedAddress.setZipcode(newZipcode);
-		em.merge( returnedAddress);
+		
+		returnedPhone.setCountryCode(newCountryCode);
+		returnedPhone.setAreaCode(newAreaCode);
+		returnedPhone.setNumber(newNumber);
+		em.merge( returnedPhone);
 		et.commit();
 
-		returnedAddress = getWithId(em, Address.class, Integer.class, Address_.id, address.getId());
+		returnedPhone = getWithId(em, Phone.class, Integer.class, Phone_.id, phone.getId());
 
-		assertThat( returnedAddress.getStreetNumber(), equalTo( newStreetNum));
-		assertThat( returnedAddress.getStreet(), equalTo( newStreet));
-		assertThat( returnedAddress.getCity(), equalTo( newCity));
-		assertThat( returnedAddress.getProvince(), equalTo( newProvinve));
-		assertThat( returnedAddress.getCountry(), equalTo( newCountry));
-		assertThat( returnedAddress.getZipcode(), equalTo( newZipcode));
+		assertThat(returnedPhone.getCountryCode(), equalTo( newCountryCode));
+		assertThat(returnedPhone.getAreaCode(), equalTo( newAreaCode));
+		assertThat(returnedPhone.getNumber(), equalTo( newNumber));
 	}
 	
 	@Test
+	@Order(7)
 	void test07_Delete() {
-		Address returnedAddress = getWithId(em, Address.class, Integer.class, Address_.id, address.getId());
+		Phone returnedPhone= getWithId(em, Phone.class, Integer.class, Phone_.id, phone.getId());
 
 		et.begin();
 
-		Address addressTest = new Address();
-		String newStreetNum = "999";
-		String newStreet = "Apple Rd";
-		String newCity = "ottawa";
-		String newProvinve = "ON";
-		String newCountry = "CA";
-		String newZipcode = "Y027U8";
+		Phone phoneTest = new Phone();
 		
-		addressTest.setStreetNumber( newStreetNum);
-		addressTest.setStreet( newStreet);
-		addressTest.setCity(newCity);
-		addressTest.setProvince(newProvinve);
-		addressTest.setCountry(newCountry);
-		addressTest.setZipcode(newZipcode);
+		String newCountryCode = "666";
+		String newAreaCode = "999";
+		String newNumber = "1234567";
 		
-		em.persist( addressTest);
+		phoneTest.setCountryCode(newCountryCode);
+		phoneTest.setAreaCode(newAreaCode);
+		phoneTest.setNumber(newNumber);
+		
+		em.persist( phoneTest);
 		et.commit();
 
 		et.begin();
-		em.remove( returnedAddress);
+		em.remove(returnedPhone);
 		et.commit();
 
-		long result = getCountWithId(em, Address.class, Integer.class, Address_.id, returnedAddress.getId());
+		long result = getCountWithId(em, Phone.class, Integer.class, Phone_.id, phone.getId());
 		assertThat( result, is( equalTo( 0L)));
 
-		result = getCountWithId(em, Address.class, Integer.class, Address_.id, addressTest.getId());
+		result = getCountWithId(em, Phone.class, Integer.class, Phone_.id, phoneTest.getId());
 		assertThat( result, is( equalTo( 1L)));
 	}
 }
