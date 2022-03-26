@@ -101,10 +101,10 @@ public class JUnitBase {
 		deleteAllFrom( Address.class, em);
 		deleteAllFrom( Phone.class, em);
 		deleteAllFrom( Person.class, em);
+		deleteAllFrom( Contact.class, em);
 		deleteAllFrom( BloodBank.class, em);
 		deleteAllFrom( BloodDonation.class, em);
 		deleteAllFrom( DonationRecord.class, em);
-		deleteAllFrom( Contact.class, em);
 
 		em.getTransaction().commit();
 	}
