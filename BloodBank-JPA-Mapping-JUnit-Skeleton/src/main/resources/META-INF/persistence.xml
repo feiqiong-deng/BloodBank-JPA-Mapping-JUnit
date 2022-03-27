@@ -22,7 +22,7 @@
                            create the database artifacts on deployment.
           "drop":            Any artifacts in the database will be deleted on application deployment.
         -->
-        <property name="javax.persistence.schema-generation.database.action" value="none"/>
+        <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         <!--
           How are schema's created or dropped? Some options ...
            property = javax.persistence.schema-generation.create-source  and/or

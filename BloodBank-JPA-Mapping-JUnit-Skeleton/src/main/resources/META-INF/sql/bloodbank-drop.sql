@@ -13,4 +13,23 @@
 --
 -- -----------------------------------------------------
 
-DROP SCHEMA IF EXISTS `bloodbank`;
+--DROP SCHEMA IF EXISTS `bloodbank`;
+use bloodbank;
+
+SET FOREIGN_KEY_CHECKS=0;
+
+TRUNCATE TABLE bloodbank.address;
+
+TRUNCATE TABLE bloodbank.blood_bank;
+
+TRUNCATE TABLE bloodbank.blood_donation;
+
+TRUNCATE TABLE bloodbank.contact;
+
+TRUNCATE TABLE bloodbank.donation_record;
+
+TRUNCATE TABLE bloodbank.person;
+
+TRUNCATE TABLE bloodbank.phone;
+
+SET FOREIGN_KEY_CHECKS=1;
