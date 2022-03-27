@@ -39,7 +39,7 @@ public class DonationRecord extends PojoBase implements Serializable {
 
 	// TODO DR03 - add annotations for 1:1 mapping. changes here should cascade.
 	@OneToOne( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="donation_id", referencedColumnName = "donation_id", nullable = false)
+	@JoinColumn(name="donation_id", referencedColumnName = "donation_id")
 	private BloodDonation donation;
 
 	// TODO DR04 - add annotations for M:1 mapping. changes here should not cascade.
