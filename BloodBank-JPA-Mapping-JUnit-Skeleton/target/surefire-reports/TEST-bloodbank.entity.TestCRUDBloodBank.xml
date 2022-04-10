@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="bloodbank.entity.TestCRUDBloodBank" time="0.796" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="bloodbank.entity.TestCRUDBloodBank" time="1.122" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CA"/>
     <property name="sun.boot.library.path" value="C:\Adoptium\jdk17-0.1.12-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\kevin\AppData\Local\Temp\surefire18194086892689398323\surefirebooter10700891792878116927.jar C:\Users\kevin\AppData\Local\Temp\surefire18194086892689398323 2022-03-27T10-35-05_040-jvmRun1 surefire10069405795842052173tmp surefire_016209501503226925248tmp"/>
+    <property name="sun.java.command" value="C:\Users\kevin\AppData\Local\Temp\surefire472324800828534326\surefirebooter687320195887806516.jar C:\Users\kevin\AppData\Local\Temp\surefire472324800828534326 2022-03-27T10-53-32_586-jvmRun1 surefire3517409420412631431tmp surefire_012318515674531368410tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\kevin\Desktop\deng\Level 4\CST8277\Assignment3\BloodBank-JPA-Mapping-JUnit-Skeleton\BloodBank-JPA-Mapping-JUnit-Skeleton\target\test-classes;C:\Users\kevin\Desktop\deng\Level 4\CST8277\Assignment3\BloodBank-JPA-Mapping-JUnit-Skeleton\BloodBank-JPA-Mapping-JUnit-Skeleton\target\classes;C:\Users\kevin\.m2\repository\org\apache\logging\log4j\log4j-api\2.17.1\log4j-api-2.17.1.jar;C:\Users\kevin\.m2\repository\org\apache\logging\log4j\log4j-core\2.17.1\log4j-core-2.17.1.jar;C:\Users\kevin\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\kevin\.m2\repository\jakarta\persistence\jakarta.persistence-api\2.2.3\jakarta.persistence-api-2.2.3.jar;C:\Users\kevin\.m2\repository\org\hibernate\hibernate-entitymanager\5.6.3.Final\hibernate-entitymanager-5.6.3.Final.jar;C:\Users\kevin\.m2\repository\org\jboss\logging\jboss-logging\3.4.2.Final\jboss-logging-3.4.2.Final.jar;C:\Users\kevin\.m2\repository\org\hibernate\hibernate-core\5.6.3.Final\hibernate-core-5.6.3.Final.jar;C:\Users\kevin\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\kevin\.m2\repository\org\jboss\jandex\2.2.3.Final\jandex-2.2.3.Final.jar;C:\Users\kevin\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\kevin\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\kevin\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\kevin\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar;C:\Users\kevin\.m2\repository\org\glassfish\jaxb\txw2\2.3.1\txw2-2.3.1.jar;C:\Users\kevin\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.7\istack-commons-runtime-3.0.7.jar;C:\Users\kevin\.m2\repository\org\jvnet\staxex\stax-ex\1.8\stax-ex-1.8.jar;C:\Users\kevin\.m2\repository\com\sun\xml\fastinfoset\FastInfoset\1.2.15\FastInfoset-1.2.15.jar;C:\Users\kevin\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.1.2.Final\hibernate-commons-annotations-5.1.2.Final.jar;C:\Users\kevin\.m2\repository\net\bytebuddy\byte-buddy\1.11.20\byte-buddy-1.11.20.jar;C:\Users\kevin\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.2_spec\1.1.1.Final\jboss-transaction-api_1.2_spec-1.1.1.Final.jar;C:\Users\kevin\.m2\repository\mysql\mysql-connector-java\8.0.27\mysql-connector-java-8.0.27.jar;C:\Users\kevin\.m2\repository\com\google\protobuf\protobuf-java\3.11.4\protobuf-java-3.11.4.jar;C:\Users\kevin\.m2\repository\org\junit\jupiter\junit-jupiter\5.7.0\junit-jupiter-5.7.0.jar;C:\Users\kevin\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\kevin\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\kevin\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\kevin\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\kevin\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.0\junit-jupiter-params-5.7.0.jar;C:\Users\kevin\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\kevin\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;C:\Users\kevin\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\kevin\.m2\repository\org\hamcrest\hamcrest-library\2.2\hamcrest-library-2.2.jar;C:\Users\kevin\.m2\repository\org\hamcrest\hamcrest-core\2.2\hamcrest-core-2.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\kevin\AppData\Local\Temp\surefire18194086892689398323\surefirebooter10700891792878116927.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\kevin\AppData\Local\Temp\surefire472324800828534326\surefirebooter687320195887806516.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.1+12"/>
@@ -58,43 +58,43 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="test01_Empty" classname="bloodbank.entity.TestCRUDBloodBank" time="0.006">
-    <system-out><![CDATA[2022-03-27T10:35:10,450|[WARN ] pooling -HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2022-03-27T10:35:10,674|[DEBUG] SQL -
+  <testcase name="test01_Empty" classname="bloodbank.entity.TestCRUDBloodBank" time="0.007">
+    <system-out><![CDATA[2022-03-27T10:53:37,886|[WARN ] pooling -HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-03-27T10:53:38,111|[DEBUG] SQL -
     
     use bloodbank
-2022-03-27T10:35:10,677|[DEBUG] SQL -
+2022-03-27T10:53:38,114|[DEBUG] SQL -
     
     SET FOREIGN_KEY_CHECKS=0
-2022-03-27T10:35:10,678|[DEBUG] SQL -
+2022-03-27T10:53:38,114|[DEBUG] SQL -
     
     TRUNCATE TABLE bloodbank.address
-2022-03-27T10:35:10,713|[DEBUG] SQL -
+2022-03-27T10:53:38,221|[DEBUG] SQL -
     
     TRUNCATE TABLE bloodbank.blood_bank
-2022-03-27T10:35:10,744|[DEBUG] SQL -
+2022-03-27T10:53:38,271|[DEBUG] SQL -
     
     TRUNCATE TABLE bloodbank.blood_donation
-2022-03-27T10:35:10,779|[DEBUG] SQL -
+2022-03-27T10:53:38,362|[DEBUG] SQL -
     
     TRUNCATE TABLE bloodbank.contact
-2022-03-27T10:35:10,835|[DEBUG] SQL -
+2022-03-27T10:53:38,432|[DEBUG] SQL -
     
     TRUNCATE TABLE bloodbank.donation_record
-2022-03-27T10:35:10,897|[DEBUG] SQL -
+2022-03-27T10:53:38,496|[DEBUG] SQL -
     
     TRUNCATE TABLE bloodbank.person
-2022-03-27T10:35:10,929|[DEBUG] SQL -
+2022-03-27T10:53:38,652|[DEBUG] SQL -
     
     TRUNCATE TABLE bloodbank.phone
-2022-03-27T10:35:10,967|[DEBUG] SQL -
+2022-03-27T10:53:38,730|[DEBUG] SQL -
     
     SET FOREIGN_KEY_CHECKS=1
-2022-03-27T10:35:10,976|[DEBUG] SQL -CREATE SCHEMA IF NOT EXISTS `bloodbank` DEFAULT CHARACTER SET utf8mb4
-2022-03-27T10:35:10,979|[DEBUG] SQL -
+2022-03-27T10:53:38,745|[DEBUG] SQL -CREATE SCHEMA IF NOT EXISTS `bloodbank` DEFAULT CHARACTER SET utf8mb4
+2022-03-27T10:53:38,753|[DEBUG] SQL -
     
     USE `bloodbank`
-2022-03-27T10:35:10,980|[DEBUG] SQL -
+2022-03-27T10:53:38,755|[DEBUG] SQL -
     
     CREATE TABLE IF NOT EXISTS `person` (
           `id` INT NOT NULL AUTO_INCREMENT,
@@ -105,7 +105,7 @@
           `version` BIGINT NOT NULL DEFAULT 1,
           PRIMARY KEY (`id`) 
     )
-2022-03-27T10:35:10,984|[DEBUG] SQL -
+2022-03-27T10:53:38,766|[DEBUG] SQL -
     
     CREATE TABLE IF NOT EXISTS `blood_bank` (
           `bank_id` INT NOT NULL AUTO_INCREMENT,
@@ -117,7 +117,7 @@
           PRIMARY KEY (`bank_id`),
           UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE 
     )
-2022-03-27T10:35:10,988|[DEBUG] SQL -
+2022-03-27T10:53:38,775|[DEBUG] SQL -
     
     CREATE TABLE IF NOT EXISTS `blood_donation` (
           `donation_id` INT NOT NULL AUTO_INCREMENT,
@@ -132,7 +132,7 @@
           INDEX `fk_blood_donation_blood_bank1_idx` (`bank_id` ASC) VISIBLE,
           CONSTRAINT `fk_blood_donation_blood_bank1`     FOREIGN KEY (`bank_id`) REFERENCES `blood_bank` (`bank_id`) ON DELETE NO ACTION ON UPDATE NO ACTION 
     )
-2022-03-27T10:35:10,992|[DEBUG] SQL -
+2022-03-27T10:53:38,784|[DEBUG] SQL -
     
     CREATE TABLE IF NOT EXISTS `donation_record` (
           `record_id` INT NOT NULL AUTO_INCREMENT,
@@ -149,7 +149,7 @@
           CONSTRAINT `fk_donation_record_person1`     FOREIGN KEY (`person_id`)     REFERENCES `person` (`id`)     ON DELETE NO ACTION     ON UPDATE NO ACTION,
           CONSTRAINT `fk_donation_record_blood_donation1`     FOREIGN KEY (`donation_id`)     REFERENCES `blood_donation` (`donation_id`)     ON DELETE NO ACTION     ON UPDATE NO ACTION 
     )
-2022-03-27T10:35:10,996|[DEBUG] SQL -
+2022-03-27T10:53:38,792|[DEBUG] SQL -
     
     CREATE TABLE IF NOT EXISTS `address` (
           `address_id` INT NOT NULL AUTO_INCREMENT,
@@ -164,7 +164,7 @@
           `version` BIGINT NOT NULL DEFAULT 1,
           PRIMARY KEY (`address_id`) 
     )
-2022-03-27T10:35:11,001|[DEBUG] SQL -
+2022-03-27T10:53:38,800|[DEBUG] SQL -
     
     CREATE TABLE IF NOT EXISTS `phone` (
           `phone_id` INT NOT NULL AUTO_INCREMENT,
@@ -176,7 +176,7 @@
           `version` BIGINT NOT NULL DEFAULT 1,
           PRIMARY KEY (`phone_id`) 
     )
-2022-03-27T10:35:11,006|[DEBUG] SQL -
+2022-03-27T10:53:38,807|[DEBUG] SQL -
     
     CREATE TABLE IF NOT EXISTS `contact` (
           `person_id` INT NOT NULL,
@@ -194,35 +194,35 @@
           CONSTRAINT `fk_contact_phone1`     FOREIGN KEY (`phone_id`)     REFERENCES `phone` (`phone_id`)     ON DELETE NO ACTION     ON UPDATE NO ACTION,
           CONSTRAINT `fk_contact_person1`     FOREIGN KEY (`person_id`)     REFERENCES `person` (`id`)     ON DELETE NO ACTION     ON UPDATE NO ACTION 
     )
-2022-03-27T10:35:11,036|[DEBUG] SQL -
+2022-03-27T10:53:38,829|[DEBUG] SQL -
     /* delete Address as generatedAlias0 */ delete 
         from
             address
-2022-03-27T10:35:11,038|[DEBUG] SQL -
+2022-03-27T10:53:38,831|[DEBUG] SQL -
     /* delete Phone as generatedAlias0 */ delete 
         from
             phone
-2022-03-27T10:35:11,040|[DEBUG] SQL -
+2022-03-27T10:53:38,833|[DEBUG] SQL -
     /* delete Person as generatedAlias0 */ delete 
         from
             person
-2022-03-27T10:35:11,042|[DEBUG] SQL -
+2022-03-27T10:53:38,834|[DEBUG] SQL -
     /* delete Contact as generatedAlias0 */ delete 
         from
             contact
-2022-03-27T10:35:11,044|[DEBUG] SQL -
+2022-03-27T10:53:38,836|[DEBUG] SQL -
     /* delete BloodBank as generatedAlias0 */ delete 
         from
             blood_bank
-2022-03-27T10:35:11,046|[DEBUG] SQL -
+2022-03-27T10:53:38,837|[DEBUG] SQL -
     /* delete BloodDonation as generatedAlias0 */ delete 
         from
             blood_donation
-2022-03-27T10:35:11,047|[DEBUG] SQL -
+2022-03-27T10:53:38,839|[DEBUG] SQL -
     /* delete DonationRecord as generatedAlias0 */ delete 
         from
             donation_record
-2022-03-27T10:35:11,052|[DEBUG] SQL -
+2022-03-27T10:53:38,845|[DEBUG] SQL -
     /* select
         count(generatedAlias0) 
     from
@@ -232,8 +232,8 @@
             blood_bank bloodbank0_
 ]]></system-out>
   </testcase>
-  <testcase name="test02_Create" classname="bloodbank.entity.TestCRUDBloodBank" time="0.027">
-    <system-out><![CDATA[2022-03-27T10:35:11,057|[DEBUG] SQL -
+  <testcase name="test02_Create" classname="bloodbank.entity.TestCRUDBloodBank" time="0.028">
+    <system-out><![CDATA[2022-03-27T10:53:38,850|[DEBUG] SQL -
     /* insert bloodbank.entity.PrivateBloodBank
         */ insert 
         into
@@ -241,11 +241,11 @@
             (created, updated, version, name, privately_owned) 
         values
             (?, ?, ?, ?, 1)
-2022-03-27T10:35:11,057|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:35:11.056659900]
-2022-03-27T10:35:11,057|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:35:11.056659900]
-2022-03-27T10:35:11,057|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [0]
-2022-03-27T10:35:11,058|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Health]
-2022-03-27T10:35:11,061|[DEBUG] SQL -
+2022-03-27T10:53:38,851|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:53:38.849594300]
+2022-03-27T10:53:38,858|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:53:38.849594300]
+2022-03-27T10:53:38,859|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [0]
+2022-03-27T10:53:38,860|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Health]
+2022-03-27T10:53:38,864|[DEBUG] SQL -
     /* insert bloodbank.entity.PublicBloodBank
         */ insert 
         into
@@ -253,11 +253,11 @@
             (created, updated, version, name, privately_owned) 
         values
             (?, ?, ?, ?, 0)
-2022-03-27T10:35:11,061|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:35:11.060649800]
-2022-03-27T10:35:11,061|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:35:11.060649800]
-2022-03-27T10:35:11,061|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [0]
-2022-03-27T10:35:11,062|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Luck]
-2022-03-27T10:35:11,067|[DEBUG] SQL -
+2022-03-27T10:53:38,865|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:53:38.864553400]
+2022-03-27T10:53:38,865|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:53:38.864553400]
+2022-03-27T10:53:38,865|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [0]
+2022-03-27T10:53:38,866|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Luck]
+2022-03-27T10:53:38,871|[DEBUG] SQL -
     /* select
         count(generatedAlias0) 
     from
@@ -269,8 +269,8 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,068|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
-2022-03-27T10:35:11,069|[DEBUG] SQL -
+2022-03-27T10:53:38,872|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
+2022-03-27T10:53:38,874|[DEBUG] SQL -
     /* select
         count(generatedAlias0) 
     from
@@ -282,12 +282,12 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,074|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
+2022-03-27T10:53:38,874|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
 ]]></system-out>
   </testcase>
-  <testcase name="test03_CreateInvalid" classname="bloodbank.entity.TestCRUDBloodBank" time="0.005"/>
-  <testcase name="test04_Read" classname="bloodbank.entity.TestCRUDBloodBank" time="0.008">
-    <system-out><![CDATA[2022-03-27T10:35:11,090|[DEBUG] SQL -
+  <testcase name="test03_CreateInvalid" classname="bloodbank.entity.TestCRUDBloodBank" time="0.004"/>
+  <testcase name="test04_Read" classname="bloodbank.entity.TestCRUDBloodBank" time="0.006">
+    <system-out><![CDATA[2022-03-27T10:53:38,883|[DEBUG] SQL -
     /* select
         generatedAlias0 
     from
@@ -302,8 +302,8 @@
             blood_bank bloodbank0_
 ]]></system-out>
   </testcase>
-  <testcase name="test05_ReadAllFields" classname="bloodbank.entity.TestCRUDBloodBank" time="0.008">
-    <system-out><![CDATA[2022-03-27T10:35:11,097|[DEBUG] SQL -
+  <testcase name="test05_ReadAllFields" classname="bloodbank.entity.TestCRUDBloodBank" time="0.009">
+    <system-out><![CDATA[2022-03-27T10:53:38,890|[DEBUG] SQL -
     /* select
         generatedAlias0 
     from
@@ -320,8 +320,8 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,098|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
-2022-03-27T10:35:11,100|[DEBUG] SQL -
+2022-03-27T10:53:38,890|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
+2022-03-27T10:53:38,893|[DEBUG] SQL -
     /* select
         generatedAlias0 
     from
@@ -338,11 +338,11 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,101|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
+2022-03-27T10:53:38,894|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
 ]]></system-out>
   </testcase>
-  <testcase name="test06_Update" classname="bloodbank.entity.TestCRUDBloodBank" time="0.04">
-    <system-out><![CDATA[2022-03-27T10:35:11,107|[DEBUG] SQL -
+  <testcase name="test06_Update" classname="bloodbank.entity.TestCRUDBloodBank" time="0.021">
+    <system-out><![CDATA[2022-03-27T10:53:38,898|[DEBUG] SQL -
     /* select
         generatedAlias0 
     from
@@ -359,8 +359,8 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,108|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
-2022-03-27T10:35:11,114|[DEBUG] SQL -
+2022-03-27T10:53:38,899|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
+2022-03-27T10:53:38,901|[DEBUG] SQL -
     /* select
         generatedAlias0 
     from
@@ -377,8 +377,8 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,115|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
-2022-03-27T10:35:11,118|[DEBUG] SQL -
+2022-03-27T10:53:38,902|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
+2022-03-27T10:53:38,905|[DEBUG] SQL -
     /* update
         bloodbank.entity.PrivateBloodBank */ update
             blood_bank 
@@ -390,13 +390,13 @@
         where
             bank_id=? 
             and version=?
-2022-03-27T10:35:11,118|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:35:11]
-2022-03-27T10:35:11,118|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:35:11.117497100]
-2022-03-27T10:35:11,118|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [1]
-2022-03-27T10:35:11,119|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Hope]
-2022-03-27T10:35:11,119|[TRACE] BasicBinder -binding parameter [5] as [INTEGER] - [1]
-2022-03-27T10:35:11,119|[TRACE] BasicBinder -binding parameter [6] as [INTEGER] - [0]
-2022-03-27T10:35:11,121|[DEBUG] SQL -
+2022-03-27T10:53:38,905|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:53:39]
+2022-03-27T10:53:38,906|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:53:38.905445300]
+2022-03-27T10:53:38,906|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [1]
+2022-03-27T10:53:38,906|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Hope]
+2022-03-27T10:53:38,906|[TRACE] BasicBinder -binding parameter [5] as [INTEGER] - [1]
+2022-03-27T10:53:38,906|[TRACE] BasicBinder -binding parameter [6] as [INTEGER] - [0]
+2022-03-27T10:53:38,908|[DEBUG] SQL -
     /* update
         bloodbank.entity.PublicBloodBank */ update
             blood_bank 
@@ -408,13 +408,13 @@
         where
             bank_id=? 
             and version=?
-2022-03-27T10:35:11,121|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:35:11]
-2022-03-27T10:35:11,122|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:35:11.117497100]
-2022-03-27T10:35:11,122|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [1]
-2022-03-27T10:35:11,122|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Fortune]
-2022-03-27T10:35:11,122|[TRACE] BasicBinder -binding parameter [5] as [INTEGER] - [2]
-2022-03-27T10:35:11,122|[TRACE] BasicBinder -binding parameter [6] as [INTEGER] - [0]
-2022-03-27T10:35:11,131|[DEBUG] SQL -
+2022-03-27T10:53:38,908|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:53:39]
+2022-03-27T10:53:38,908|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:53:38.905445300]
+2022-03-27T10:53:38,908|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [1]
+2022-03-27T10:53:38,908|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Fortune]
+2022-03-27T10:53:38,909|[TRACE] BasicBinder -binding parameter [5] as [INTEGER] - [2]
+2022-03-27T10:53:38,909|[TRACE] BasicBinder -binding parameter [6] as [INTEGER] - [0]
+2022-03-27T10:53:38,913|[DEBUG] SQL -
     /* select
         generatedAlias0 
     from
@@ -431,8 +431,8 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,133|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
-2022-03-27T10:35:11,138|[DEBUG] SQL -
+2022-03-27T10:53:38,914|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
+2022-03-27T10:53:38,916|[DEBUG] SQL -
     /* select
         generatedAlias0 
     from
@@ -449,11 +449,11 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,139|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
+2022-03-27T10:53:38,917|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
 ]]></system-out>
   </testcase>
-  <testcase name="test07_Delete" classname="bloodbank.entity.TestCRUDBloodBank" time="0.068">
-    <system-out><![CDATA[2022-03-27T10:35:11,146|[DEBUG] SQL -
+  <testcase name="test07_Delete" classname="bloodbank.entity.TestCRUDBloodBank" time="0.056">
+    <system-out><![CDATA[2022-03-27T10:53:38,921|[DEBUG] SQL -
     /* select
         generatedAlias0 
     from
@@ -470,8 +470,8 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,148|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
-2022-03-27T10:35:11,156|[DEBUG] SQL -
+2022-03-27T10:53:38,925|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
+2022-03-27T10:53:38,929|[DEBUG] SQL -
     /* select
         generatedAlias0 
     from
@@ -488,8 +488,8 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,157|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
-2022-03-27T10:35:11,162|[DEBUG] SQL -
+2022-03-27T10:53:38,930|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
+2022-03-27T10:53:38,934|[DEBUG] SQL -
     /* insert bloodbank.entity.PrivateBloodBank
         */ insert 
         into
@@ -497,11 +497,11 @@
             (created, updated, version, name, privately_owned) 
         values
             (?, ?, ?, ?, 1)
-2022-03-27T10:35:11,162|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:35:11.161380400]
-2022-03-27T10:35:11,163|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:35:11.161380400]
-2022-03-27T10:35:11,163|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [0]
-2022-03-27T10:35:11,163|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Health]
-2022-03-27T10:35:11,165|[DEBUG] SQL -
+2022-03-27T10:53:38,934|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:53:38.933370]
+2022-03-27T10:53:38,935|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:53:38.933370]
+2022-03-27T10:53:38,935|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [0]
+2022-03-27T10:53:38,935|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Health]
+2022-03-27T10:53:38,936|[DEBUG] SQL -
     /* insert bloodbank.entity.PublicBloodBank
         */ insert 
         into
@@ -509,11 +509,11 @@
             (created, updated, version, name, privately_owned) 
         values
             (?, ?, ?, ?, 0)
-2022-03-27T10:35:11,165|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:35:11.165369500]
-2022-03-27T10:35:11,166|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:35:11.165369500]
-2022-03-27T10:35:11,166|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [0]
-2022-03-27T10:35:11,166|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Luck]
-2022-03-27T10:35:11,185|[DEBUG] SQL -
+2022-03-27T10:53:38,937|[TRACE] BasicBinder -binding parameter [1] as [TIMESTAMP] - [2022-03-27T10:53:38.936362300]
+2022-03-27T10:53:38,937|[TRACE] BasicBinder -binding parameter [2] as [TIMESTAMP] - [2022-03-27T10:53:38.936362300]
+2022-03-27T10:53:38,937|[TRACE] BasicBinder -binding parameter [3] as [INTEGER] - [0]
+2022-03-27T10:53:38,937|[TRACE] BasicBinder -binding parameter [4] as [VARCHAR] - [Luck]
+2022-03-27T10:53:38,944|[DEBUG] SQL -
     select
         donations0_.bank_id as bank_id8_2_0_,
         donations0_.donation_id as donation1_2_0_,
@@ -548,8 +548,8 @@
             on donationre1_.person_id=person2_.id 
     where
         donations0_.bank_id=?
-2022-03-27T10:35:11,186|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
-2022-03-27T10:35:11,193|[DEBUG] SQL -
+2022-03-27T10:53:38,944|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
+2022-03-27T10:53:38,952|[DEBUG] SQL -
     select
         donations0_.bank_id as bank_id8_2_0_,
         donations0_.donation_id as donation1_2_0_,
@@ -584,26 +584,26 @@
             on donationre1_.person_id=person2_.id 
     where
         donations0_.bank_id=?
-2022-03-27T10:35:11,193|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
-2022-03-27T10:35:11,195|[DEBUG] SQL -
+2022-03-27T10:53:38,952|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
+2022-03-27T10:53:38,954|[DEBUG] SQL -
     /* delete bloodbank.entity.PrivateBloodBank */ delete 
         from
             blood_bank 
         where
             bank_id=? 
             and version=?
-2022-03-27T10:35:11,195|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
-2022-03-27T10:35:11,195|[TRACE] BasicBinder -binding parameter [2] as [INTEGER] - [1]
-2022-03-27T10:35:11,196|[DEBUG] SQL -
+2022-03-27T10:53:38,954|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
+2022-03-27T10:53:38,955|[TRACE] BasicBinder -binding parameter [2] as [INTEGER] - [1]
+2022-03-27T10:53:38,956|[DEBUG] SQL -
     /* delete bloodbank.entity.PublicBloodBank */ delete 
         from
             blood_bank 
         where
             bank_id=? 
             and version=?
-2022-03-27T10:35:11,196|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
-2022-03-27T10:35:11,196|[TRACE] BasicBinder -binding parameter [2] as [INTEGER] - [1]
-2022-03-27T10:35:11,205|[DEBUG] SQL -
+2022-03-27T10:53:38,957|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
+2022-03-27T10:53:38,958|[TRACE] BasicBinder -binding parameter [2] as [INTEGER] - [1]
+2022-03-27T10:53:38,965|[DEBUG] SQL -
     /* select
         count(generatedAlias0) 
     from
@@ -615,8 +615,8 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,206|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
-2022-03-27T10:35:11,207|[DEBUG] SQL -
+2022-03-27T10:53:38,966|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [1]
+2022-03-27T10:53:38,967|[DEBUG] SQL -
     /* select
         count(generatedAlias0) 
     from
@@ -628,8 +628,8 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,207|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
-2022-03-27T10:35:11,209|[DEBUG] SQL -
+2022-03-27T10:53:38,967|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [2]
+2022-03-27T10:53:38,969|[DEBUG] SQL -
     /* select
         count(generatedAlias0) 
     from
@@ -641,8 +641,8 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,209|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [3]
-2022-03-27T10:35:11,211|[DEBUG] SQL -
+2022-03-27T10:53:38,970|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [3]
+2022-03-27T10:53:38,973|[DEBUG] SQL -
     /* select
         count(generatedAlias0) 
     from
@@ -654,7 +654,7 @@
             blood_bank bloodbank0_ 
         where
             bloodbank0_.bank_id=?
-2022-03-27T10:35:11,211|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [4]
+2022-03-27T10:53:38,974|[TRACE] BasicBinder -binding parameter [1] as [INTEGER] - [4]
 ]]></system-out>
   </testcase>
 </testsuite>
